@@ -1,8 +1,11 @@
 import express from "express";
 import * as db from "./util/database.js"
+import bodyParser from 'body-parser';
 
 const PORT = 3000;
 const app = express();
+app.use(express.json());
+app.use(bodyParser.json())
 
 app.get('/users', (req, res) => {
     try{
@@ -15,7 +18,7 @@ app.get('/users', (req, res) => {
 
 app.get('/users/:id', (req, res) => {
     try{
-        const users = db.getUserById(req.params.id);
+        const users = db.getUserById(+req.params.id);
         if (!users){
             return res.status(400).json("User not found!");
         }
@@ -51,7 +54,7 @@ app.post('/users', (req, res) => {
 app.put('/users/:id', (req, res) => {
     try{
         const {email, password} = req.body;
-        const id = req.params.id;
+        const id = +req.params.id;
         const updatedUser = db.updateUser(id, email, password);
         if (updatedUser.changes != 1){
             return res.status(422).json({message: "Unprocessable Entity"});
@@ -64,7 +67,7 @@ app.put('/users/:id', (req, res) => {
 
 app.delete('/users/:id', (req, res) => {
     try{
-        const deletedUser = db.deleteUser(req.params.id);
+        const deletedUser = db.deleteUser(+req.params.id);
         if (deletedUser.changes != 1){
             return res.status(422).json({message: "Unprocessable Entity"});
         }
