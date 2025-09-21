@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-right-buttons">
+        <button onclick="showRegistration()">Regisztráció</button>
+        <button onclick="showLogin()">Bejelentkezés</button>
+    </div>
+
+    <div class="log" >
+        <h1>Log in</h1>
+        <p>Email: </p>
+        <input type="text" id="log_email" placeholder="pl.: valami@email.com">
+        <p>password: </p>
+        <input type="password" id="log_pass" placeholder="********"><br>
+        <button onclick="login()">Log in</button><br>
+    </div>
+
+    <div class="reg" style="display:none">
+        <h1>Registration</h1>
+        <p>Email: </p>
+        <input type="text" id="reg_email" placeholder="pl.: valami@email.com">
+        <p>Password: </p>
+        <input type="password" id="reg_pass" placeholder="********"><br>
+        <p>Repeat password: </p>
+        <input type="password" id="reg_rep_pass" placeholder="********"><br>
+        <button onclick="registration()">Registration</button><br>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
