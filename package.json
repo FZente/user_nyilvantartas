@@ -21,6 +21,7 @@
   "homepage": "https://github.com/FZente/user_nyilvantartas#readme",
   "dependencies": {
     "better-sqlite3": "^12.2.0",
+    "cors": "^2.8.5",
     "express": "^5.1.0"
   },
   "devDependencies": {

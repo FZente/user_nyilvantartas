@@ -10,7 +10,6 @@ db.prepare(`
   )
 `).run();
 
-// CRUD functions
 export const getAllUsers = () =>
   db.prepare(`SELECT * FROM users`).all();
 
