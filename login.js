@@ -9,10 +9,10 @@ async function registration() {
   }
 
   try {
-    const res = await fetch("/users", {
+    const res = await fetch("http://localhost:3000/users", {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ email: reg_email, password: reg_pass })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: reg_email, password: reg_pass }),
     });
 
     if (res.ok) {
@@ -31,9 +31,11 @@ async function login() {
   let log_email = document.getElementById("log_email").value;
   let log_pass = document.getElementById("log_pass").value;
 
-  const res = await fetch("/users");
+  const res = await fetch("http://localhost:3000/users");
   const users = await res.json();
-  const user = users.find(u => u.email === log_email && u.password === log_pass);
+  const user = users.find(
+    (u) => u.email === log_email && u.password === log_pass
+  );
 
   if (user) {
     alert("Sikeres bejelentkezés!");
@@ -41,6 +43,7 @@ async function login() {
     alert("Hibás email vagy jelszó!");
   }
 }
+
 function showRegistration() {
   document.querySelector(".reg").style.display = "block";
   document.querySelector(".log").style.display = "none";

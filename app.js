@@ -6,8 +6,8 @@ import bodyParser from 'body-parser';
 const PORT = 3000;
 const app = express();
 app.use(express.json());
-app.use(cors())
-app.use(bodyParser.json())
+app.use(cors());
+app.use(bodyParser.json());
 
 app.get('/users', (req, res) => {
     try{
